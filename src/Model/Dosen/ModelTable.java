@@ -16,7 +16,7 @@ public class ModelTable extends AbstractTableModel {
 
     // Berfungsi untuk menyimpan daftar mahasiswa
     List<Model.Dosen.ModelDosen> daftarDosen;
-    String kolom[] = {"ID", "Nama", "NIDN"};
+    String kolom[] = {"ID", "Nama", "Email"};
 
     public ModelTable(List<Model.Dosen.ModelDosen> daftarDosen) {
         this.daftarDosen = daftarDosen;
@@ -42,7 +42,7 @@ public class ModelTable extends AbstractTableModel {
             case 1:
                 return daftarDosen.get(rowIndex).getNama();
             case 2:
-                return daftarDosen.get(rowIndex).getNidn();
+                return daftarDosen.get(rowIndex).getEmail();
             default:
                 return null;
         }
