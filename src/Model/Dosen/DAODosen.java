@@ -6,8 +6,8 @@
 package Model.Dosen;
 
 import Model.Connector;
-import Model.Mahasiswa.InterfaceDAOMahasiswa;
-import Model.Mahasiswa.ModelMahasiswa;
+import Model.Dosen.InterfaceDAODosen;
+import Model.Dosen.ModelDosen;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -25,7 +25,7 @@ public class DAODosen implements InterfaceDAODosen {
     public void insert(ModelDosen dosen) {
        try {
             // Perintah query disimpan ke dalam variabel "query"
-            String query = "INSERT INTO dosen (nama, nidn) VALUES (?, ?);";
+            String query = "INSERT INTO dosen (nama, email) VALUES (?, ?);";
             
             /* 
               Memasukkan nama dan nim dari input user ke dalam query untuk 
@@ -34,7 +34,7 @@ public class DAODosen implements InterfaceDAODosen {
             PreparedStatement statement;
             statement = Connector.Connect().prepareStatement(query);
             statement.setString(1, dosen.getNama());
-            statement.setString(2, dosen.getNidn());
+            statement.setString(2, dosen.getEmail());
             
             // Menjalankan query untuk memasukkan data mahasiswa baru
             statement.executeUpdate();
@@ -48,10 +48,10 @@ public class DAODosen implements InterfaceDAODosen {
     }
 
     @Override
-    public void update(ModelMahasiswa mahasiswa) {
+    public void update(ModelDosen ) {
         try {
             // Perintah query disimpan ke dalam variabel "query"
-            String query = "UPDATE mahasiswa SET nama=?, nim=? WHERE id=?;";
+            String query = "UPDATE dosen SET nama=?, email=? WHERE id=?;";
             
             /* 
               Memasukkan nama dan nim dari input user 
@@ -60,9 +60,9 @@ public class DAODosen implements InterfaceDAODosen {
             */
             PreparedStatement statement;
             statement = Connector.Connect().prepareStatement(query);
-            statement.setString(1, mahasiswa.getNama());
-            statement.setString(2, mahasiswa.getNim());
-            statement.setInt(3, mahasiswa.getId());
+            statement.setString(1, dosen.getNama());
+            statement.setString(2, dosen.getEmail());
+            statement.setInt(3, dosen.getId());
             
             // Menjalankan query untuk menghapus data mahasiswa yang dipilih
             statement.executeUpdate();
@@ -136,7 +136,7 @@ public class DAODosen implements InterfaceDAODosen {
                 // Memasukkan hasil query ke objek mahasiswa
                 dsn.setId(resultSet.getInt("id"));
                 dsn.setNama(resultSet.getString("nama"));
-                dsn.setNim(resultSet.getString("nidn"));
+                dsn.setEmail(resultSet.getString("email"));
                
                 listDosen.add(dsn);
             }
