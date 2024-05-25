@@ -67,15 +67,15 @@ public class ControllerDosen {
             ModelDosen dosenBaru = new ModelDosen();
            
             String nama = halamanInput.getInputNama();
-            String nidn = halamanInput.getInputNIDN();
+            String email = halamanInput.getInputEmail();
 
             
-            if ("".equals(nama) || "".equals(nidn)) {
+            if ("".equals(nama) || "".equals(email)) {
                 throw new Exception("Nama atau NIM tidak boleh kosong!");
             }
             
             dosenBaru.setNama(nama);
-            dosenBaru.setNidn(nidn);
+            dosenBaru.setEmail(email);
 
             daoDosen.insert(dosenBaru);
             JOptionPane.showMessageDialog(null, "Dosen baru berhasil ditambahkan.");
@@ -92,16 +92,16 @@ public class ControllerDosen {
             ModelDosen dosenYangMauDiedit = new ModelDosen();
            
             String nama = halamanEdit.getInputNama();
-            String nidn = halamanEdit.getInputNIDN();
+            String email = halamanEdit.getInputEmail();
 
-            if ("".equals(nama) || "".equals(nidn)) {
-                throw new Exception("Nama atau NIDN tidak boleh kosong!");
+            if ("".equals(nama) || "".equals(email)) {
+                throw new Exception("Nama atau Email tidak boleh kosong!");
             }
             
             // Mengisi id, nama dan nim dari "mahasiswa baru" yang dibuat tadi.
             dosenYangMauDiedit.setId(id);
             dosenYangMauDiedit.setNama(nama);
-            dosenYangMauDiedit.setNidn(nidn);
+            dosenYangMauDiedit.setEmail(email);
             daoDosen.update(dosenYangMauDiedit);
             JOptionPane.showMessageDialog(null, "Data Dosen berhasil diubah.");
 
