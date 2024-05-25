@@ -11,7 +11,7 @@ package Model.Dosen;
  */
 public class ModelDosen {
     private Integer id;
-    private String nama, nidn;
+    private String nama, email;
     
     public Integer getId() {
         return id;
@@ -29,12 +29,12 @@ public class ModelDosen {
         this.nama = nama;
     }
 
-    public String getNidn() {
-        return nidn;
+    public String getEmail() {
+        return email;
     }
 
-    public void setNidn(String nidn) {
-        this.nidn = nidn;
+    public void setEmail(String email) {
+        this.email = email;
     }
 }
 
