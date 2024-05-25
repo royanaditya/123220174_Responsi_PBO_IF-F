@@ -37,7 +37,7 @@ public class ViewData extends JFrame {
     JTable table;
     DefaultTableModel tableModel;
     JScrollPane scrollPane;
-    String namaKolom[] = {"ID", "Nama", "NIDN"};
+    String namaKolom[] = {"ID", "Nama", "Email"};
 
     public ViewData() {
         tableModel = new DefaultTableModel(namaKolom, 0);
@@ -91,11 +91,11 @@ public class ViewData extends JFrame {
                     ModelDosen dosenTerpilih = new ModelDosen();
                     Integer id = (int) table.getValueAt(baris, 0);
                     String nama = table.getValueAt(baris, 1).toString();
-                    String nidn = table.getValueAt(baris, 2).toString();
+                    String email = table.getValueAt(baris, 2).toString();
 
                     dosenTerpilih.setId(id);
                     dosenTerpilih.setNama(nama);
-                    dosenTerpilih.setNidn(nidn);
+                    dosenTerpilih.setEmail(email);
 
                     dispose();
                     new View.Dosen.EditData(dosenTerpilih);
