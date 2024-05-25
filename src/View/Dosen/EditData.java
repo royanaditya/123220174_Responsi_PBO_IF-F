@@ -24,9 +24,9 @@ public class EditData extends JFrame {
     
     JLabel header = new JLabel("Edit Dosen");
     JLabel labelInputNama = new JLabel("Nama");
-    JLabel labelInputNIDN = new JLabel("NIDN");
+    JLabel labelInputEmail = new JLabel("Email");
     JTextField inputNama = new JTextField();
-    JTextField inputNIDN = new JTextField();
+    JTextField inputEmail = new JTextField();
     JButton tombolEdit = new JButton("Edit Dosen");
     JButton tombolKembali = new JButton("Kembali");
 
@@ -40,23 +40,23 @@ public class EditData extends JFrame {
 
         add(header);
         add(labelInputNama);
-        add(labelInputNIDN);
+        add(labelInputEmail);
         add(inputNama);
-        add(inputNIDN);
+        add(inputEmail);
         add(tombolEdit);
         add(tombolKembali);
 
         header.setBounds(20, 8, 440, 24);
         labelInputNama.setBounds(20, 32, 440, 24);
         inputNama.setBounds(18, 56, 440, 36);
-        labelInputNIDN.setBounds(20, 96, 440, 24);
-        inputNIDN.setBounds(18, 120, 440, 36);
+        labelInputEmail.setBounds(20, 96, 440, 24);
+        inputEmail.setBounds(18, 120, 440, 36);
         tombolKembali.setBounds(20, 160, 215, 40);
         tombolEdit.setBounds(240, 160, 215, 40);
         
         // Masukkin nama dan nim yang didapat dari halaman sebelumnya.
         inputNama.setText(dosen.getNama());
-        inputNIDN.setText(dosen.getNidn());
+        inputEmail.setText(dosen.getEmail());
         
         controller = new ControllerDosen(this);
 
@@ -102,7 +102,7 @@ public class EditData extends JFrame {
       file ControllerMahasiswa.java dan file PageInputMahasiswa.java 
       berada pada package yang berbeda.
     */
-    public String getInputNIDN() {
-        return inputNIDN.getText();
+    public String getInputEmail() {
+        return inputEmail.getText();
     }
 }
